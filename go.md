@@ -144,7 +144,9 @@ func Unsafe_Slice_Transmute[T any, U any](slice []T) []U {
 
 
 ```go
-// returns an array 'is_not_prime' of bools with  is_not_prime[n] == true  if n is not a prime.
+// returns an array 'is_not_prime' of bools with  is_not_prime[m] == true  if m is not a prime.
+//
+// up to but not including n.
 func sieve_of_Eratosthenes(n int) []bool {
 	is_not_prime := make([]bool, n)
 
