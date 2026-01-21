@@ -34,7 +34,7 @@ s64 int_pow(s64 x, u64 y) {
     return result;
 }
 
-// handles the float edge cases, an can accept negative y
+// handles the float edge cases, and can accept negative y
 f64 f64_int_pow(f64 x, s64 y) {
     if (x == 0) return 0;
 
@@ -60,7 +60,7 @@ f64 f64_int_pow(f64 x, s64 y) {
 ```c
 // static_assert(int_log_n(int_pow(n, x), n) == x);
 
-// all int log's round down.
+// all int_log()'s round down.
 
 u32 int_log_10(u64 x) {
     if (x == 0) return 0;
