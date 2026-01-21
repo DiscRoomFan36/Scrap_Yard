@@ -10,14 +10,14 @@ func Append[T any](slice *[]T, items ...T) {
 ```
 
 ```go
-func Pop[T ~[]E, E any](slice *T) E {
+func Pop[T any](slice *[]T) T {
 	item  := (*slice)[ len(*slice)-1]
 	*slice = (*slice)[:len(*slice)-1]
 	return item
 }
 
-func Pop_Safe[T ~[]E, E any](slice *T) (bool, E) {
-    var item E
+func Pop_Safe[T any](slice *[]T) (bool, T) {
+    var item T
     if len(*slice) == 0 { return false, item}
 
 	item   = (*slice)[ len(*slice)-1]
