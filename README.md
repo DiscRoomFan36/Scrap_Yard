@@ -6,7 +6,11 @@ Is a collection of code scraps that are useful to me.
 Sorted by language, mostly.
 
 
-## MIT LICENSE
+## LICENSE
+
+This project is licensed under the terms of the MIT license.
+
+MIT License
 
 Copyright (c) 2026 Fletcher M
 
