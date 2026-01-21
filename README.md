@@ -1,4 +1,6 @@
 
 # The Scrap Yard
 
-is a collection of code scraps the are useful to me.
+is a collection of code scraps that are useful to me.
+
+Sorted by language, mostly.
