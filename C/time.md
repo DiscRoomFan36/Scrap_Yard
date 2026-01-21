@@ -65,8 +65,8 @@ Time_In_Parts time_in_ns_to_time_in_parts(u64 time_in_ns) {
 //
 // print formatted time, Kinda line `S_Fmt` and `S_Arg()` from `Bested.h`
 //
-#define Time_Fmt                "%4lds, %4ldms, %4ldus, %4ldns"
+#define Time_Fmt            "%4lds, %4ldms, %4ldus, %4ldns"
 // Accepts a 'Time_In_Parts'
-#define Time_Arg(t)          (time).s, (time).ms, (time).us, (time).ns
+#define Time_Arg(t)         (time).s, (time).ms, (time).us, (time).ns
 ```
 
