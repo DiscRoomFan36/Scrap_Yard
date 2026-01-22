@@ -141,6 +141,23 @@ func Unsafe_Slice_Transmute[T any, U any](slice []T) []U {
 }
 ```
 
+```go
+// returns the string split into two pieces,
+//
+// if the separator was not in the string,
+// before contains the whole string, and after is empty.
+// (and found == false)
+func split_once(str, sep string) (found bool, before, after string) {
+    index := strings.Index(str, sep)
+    if index == -1 { return false, str, "" }
+
+    _before := str[:index]
+    _after  := str[index+len(sep):]
+
+    return true, _before, _after
+}
+```
+
 
 
 ```go
