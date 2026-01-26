@@ -29,7 +29,7 @@ func Pop_Safe[T any](slice *[]T) (bool, T) {
 ```go
 // good old swap and remove
 func Remove_Unordered[T any](slice *[]T, index int) {
-	if index != len(*s)-1 {
+	if index != len(*slice)-1 {
 		(*slice)[index] = (*slice)[len(*slice)-1]
 	}
 	*slice = (*slice)[:len(*slice)-1]
