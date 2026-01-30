@@ -40,6 +40,13 @@ func Remove_Ordered[T any](slice *[]T, index int) {
 }
 ```
 
+```go
+func Contains[T comparable, U any](the_map map[T]U, item T) bool {
+    _, found := the_map[item]
+    return found
+}
+```
+
 ## Math is supposed to be fun. Generics mean fun.
 
 Generic math functions.
