@@ -47,6 +47,17 @@ func Contains[T comparable, U any](the_map map[T]U, item T) bool {
 }
 ```
 
+```go
+// makes a grid, with default values. i hope go can turn this into something cool.
+//
+// might be better to make([]T, m*n) then grab some slices.
+func make_grid[T any](n, m int) [][]T {
+    grid := make([][]T, m)
+    for j := range m { grid[j] = make([]T, n) }
+    return grid
+}
+```
+
 ## Math is supposed to be fun. Generics mean fun.
 
 Generic math functions.
