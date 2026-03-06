@@ -53,7 +53,6 @@ func Fixed_Size_Array_Insert[T any](arr []T, item T, index int) {
 
     arr[index] = item
 }
-
 ```
 
 ```go
@@ -231,30 +230,30 @@ func sieve_of_Eratosthenes(n int) []bool {
 //
 // could be made O(log(n)*len(nums)) with a heap.
 func Smallest_N_Numbers_In_Order(nums []int, n int) []int {
-    if len(nums) < n { panic("array less than n") }
+    if len(nums) < n { panic("array less than n"); }
 
     // can use math.MaxInt
-    const INF = math.MaxInt
+    const INF = math.MaxInt;
 
     // this is a sorted array of the smallest N elements
-    smallest_n := make([]int, n)
+    smallest_n := make([]int, n);
 
     // funny
-    for i := range smallest_n { smallest_n[i] = nums[i] }
-    slices.Sort(smallest_n)
+    for i := range smallest_n { smallest_n[i] = nums[i]; }
+    slices.Sort(smallest_n);
 
     for j := n; j < len(nums); j++ {
-        num := nums[j]
+        num := nums[j];
 
         // check if this number needs to be placed in this array at all.
-        if num >= smallest_n[len(smallest_n)-1] { continue }
+        if num >= smallest_n[len(smallest_n)-1] { continue; }
 
         // this could be technically faster, if you use a heap, and pop the top when its num is smaller.
         // but i dont like the look of golangs, heap container.
-        index_to_insert, _ := slices.BinarySearch(smallest_n, num)
-        Fixed_Size_Array_Insert(smallest_n, num, index_to_insert)
+        index_to_insert, _ := slices.BinarySearch(smallest_n, num);
+        Fixed_Size_Array_Insert(smallest_n, num, index_to_insert);
     }
 
-    return smallest_n
+    return smallest_n;
 }
 ```
