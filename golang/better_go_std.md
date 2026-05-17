@@ -4,8 +4,9 @@
 ## Its annoying to work with Slices
 
 ```go
-func Append[T any](slice *[]T, items ...T) {
+func Append[T any](slice *[]T, items ...T) *T {
 	*slice = append(*slice, items...);
+    return &(*slice)[len(*slice)-1];
 }
 ```
 
