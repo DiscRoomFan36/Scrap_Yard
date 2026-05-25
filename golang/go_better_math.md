@@ -19,52 +19,52 @@ func Div_Ceil[T Int](x, y T) T { return (x + y - 1) / y; }
 // floating point mod, always returns a number [0, 1)
 // Modf but better.
 func mod1[T Float](x T) T {
-	_, a_f64 := math.Modf(float64(x));
+    _, a_f64 := math.Modf(float64(x));
 
-	// assert(abs(a) < 1)
-	a := T(a_f64);
-	// if the sign was negative, make it positive,
-	if a < 0 { return 1 + a;
-	} else   { return a; }
+    // assert(abs(a) < 1)
+    a := T(a_f64);
+    // if the sign was negative, make it positive,
+    if a < 0 { return 1 + a;
+    } else   { return a; }
 }
 
 func Clamp[T Number](x, mini, maxi T) T {
-	// TODO remove this?
-	if mini > maxi { panic("mini was bigger than maxi"); }
+    // TODO remove this?
+    if mini > maxi { panic("mini was bigger than maxi"); }
 
-	if x < mini { return mini; }
-	if x > maxi { return maxi; }
-	return x;
+    if x < mini { return mini; }
+    if x > maxi { return maxi; }
+    return x;
 }
 
 func Lerp[T Float](a, b, t T) T { return (1-t)*a + t*b; }
 
 
 func Abs[T Number](x T) T {
-	// this would be faster if the type was known but w/e
-	if x < 0 { x = -x; }
-	return x;
+    // this would be faster if the type was known but w/e
+    if x < 0 { x = -x; }
+    return x;
 }
 
 // To Nearest Whole number
 func Round[T Number](x T) int {
-	// Adds 0.5, works for ints and floats, look out for overflow
-	var rounded int;
-	if x > 0 { rounded = int((x*2 + 1) / 2);
-	} else {   rounded = int((x*2 - 1) / 2); }
+    // Adds 0.5, works for ints and floats, look out for overflow
+    var rounded int;
+    if x > 0 { rounded = int((x*2 + 1) / 2);
+    } else {   rounded = int((x*2 - 1) / 2); }
 
-	return rounded;
+    return rounded;
 }
 
 func Sloppy_Equal[T Float](a, b T) bool {
-	// some small number
-	const EPSILON = 0.000000001;
-	return Abs(a - b) < EPSILON;
+    // some small number
+    const EPSILON = 0.000000001;
+    return Abs(a - b) < EPSILON;
 }
 
 // outputs a number from [0, b). ignore the float64. go math module is dumb.
 func Proper_Mod[T Float](a, b T) T {
-	return T(math.Mod(math.Mod(float64(a), float64(b))+float64(b), float64(b)));
+    return T(math.Mod(math.Mod(float64(a), float64(b))+float64(b), float64(b)));
 }
 
 // i should make a int sqrt function for go...

@@ -5,39 +5,39 @@
 
 ```go
 func Append[T any](slice *[]T, items ...T) *T {
-	*slice = append(*slice, items...);
+    *slice = append(*slice, items...);
     return &(*slice)[len(*slice)-1];
 }
 ```
 
 ```go
 func Pop[T any](slice *[]T) T {
-	item  := (*slice)[ len(*slice)-1];
-	*slice = (*slice)[:len(*slice)-1];
-	return item;
+    item  := (*slice)[ len(*slice)-1];
+    *slice = (*slice)[:len(*slice)-1];
+    return item;
 }
 
 func Pop_Safe[T any](slice *[]T) (bool, T) {
     var item T;
     if len(*slice) == 0 { return false, item; }
 
-	item   = (*slice)[ len(*slice)-1];
-	*slice = (*slice)[:len(*slice)-1];
-	return true, item;
+    item   = (*slice)[ len(*slice)-1];
+    *slice = (*slice)[:len(*slice)-1];
+    return true, item;
 }
 ```
 
 ```go
 // good old swap and remove
 func Remove_Unordered[T any](slice *[]T, index int) {
-	if index != len(*slice)-1 {
-		(*slice)[index] = (*slice)[len(*slice)-1];
-	}
-	*slice = (*slice)[:len(*slice)-1];
+    if index != len(*slice)-1 {
+        (*slice)[index] = (*slice)[len(*slice)-1];
+    }
+    *slice = (*slice)[:len(*slice)-1];
 }
 
 func Remove_Ordered[T any](slice *[]T, index int) {
-	*slice = append((*slice)[:index], (*slice)[index+1:]...);
+    *slice = append((*slice)[:index], (*slice)[index+1:]...);
 }
 ```
 
